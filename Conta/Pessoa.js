@@ -1,15 +1,13 @@
 export class Pessoa {
-    constructor(nome, idade, telefone, conta){
-        this.nome = nome;
-        this.idade = idade;
-        this.telefone = telefone;
-        this.conta = conta;
-    }
-}
+  constructor(nome, idade, telefone) {
+    this.nome = nome;
+    this.idade = idade;
+    this.telefone = telefone;
+  }
 
-let idade = 17;
-verificarIdade(idade) {
-    if (idade<18){
-        throw "Não pode abrir a conta";
+  verificarIdade(idade) {
+    if (idade < 18) {
+      console.log(this.nome + " não pode abrir a conta");
     }
+  }
 }
