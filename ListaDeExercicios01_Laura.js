@@ -1,9 +1,9 @@
 /*1) Escreva uma função que leia três número inteiros e positivos (A, B, C) e 
 calcule a seguinte expressão:*/
 function calcularExpressao() {
-    let A = parseFloat(prompt("Valor de A: "));
-    let B = parseFloat(prompt("Valor de B: "));
-    let C = parseFloat(prompt("Valor de C: "));
+    let A = parseInt(prompt("Valor de A: "));
+    let B = parseInt(prompt("Valor de B: "));
+    let C = parseInt(prompt("Valor de C: "));
 
     let R = Math.pow(A + B, 2);
     let S = Math.pow(B + C, 2);
@@ -23,7 +23,7 @@ function distancia() {
     let x2 = parseFloat(prompt("Coordenada x2: "));
     let y2 = parseFloat(prompt("Coordenada y2: "));
 
-    let d = Math.sqrt(Math.pow(x2 - x1, 2)) + Math.pow(y2 - y1, 2);
+    let d = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 
     alert("DistÂncia entre os pontos: " + d);
     return d;
@@ -37,27 +37,37 @@ distância que maria irá percorrer, o consumo do carro e o valor do
 combustível. A função deve indicar a quantidade de combustível que 
 precisa ser abastecida e o custo da viagem.*/
 function calculaViagem(distancia, consumo, valorCombustivel) {
-    let litrosNecessarios = distancia / consumo; 
+    let litrosNecessarios = distancia / consumo;
     let custoTotal = litrosNecessarios * valorCombustivel;
 
     console.log("Litros necessários: " + litrosNecessarios);
-    console.log("Custo da Viagem: R$ " + custoTotal);
+    console.log("Custo da viagem: R$ " + custoTotal);
+
+    return custoTotal;
 }
+
+calculaViagem(300, 10, 6);
 
 /*4) Chico tem 1,50 metros de altura e cresce 2 centímetros por ano, enquanto 
 Zé tem 1,10 metros e cresce 3 centímetros por ano. Construa uma função 
 que recebe as alturas de Chico e Zé e retorne quantos anos serão 
 necessários para que Zé seja maior que Chico.*/
-function calculaAnos(alturaChico, alturaZe) {
+function calculaAnos() {
+    let alturaChico = parseFloat(prompt("Altura de Chico em metros: "));
+    let alturaZe = parseFloat(prompt("Altura de Zé em metros: "));
+
     let anos = 0;
 
     while (alturaZe <= alturaChico) {
-        alturaChico += 0.02;
-        alturaZe += 0.03;
+        alturaChico += 0.02; 
+        alturaZe += 0.03;  
         anos++;
     }
+
+    alert("Serão necessários " + anos + " anos para Zé ser maior que Chico.");
     return anos;
 }
+calculaAnos();
 
 /*5) Faça uma função que receba a data de nascimento de uma pessoa (dia, 
 mês e ano) e retorne à idade da pessoa expressa em dias.*/
@@ -86,7 +96,7 @@ function converterTempo() {
 
     let resultado = [horas, minutos, segundos];
 
-    alert("Tempo: ${horas}h ${minutos}m ${segundos}s");
+    alert("Tempo: " + horas + "h " + minutos + "m " + segundos + "s");
     return resultado;
 }
 converterTempo();
@@ -94,18 +104,22 @@ converterTempo();
 /*7) Faça uma função que receba um array com a idade de 10 pessoas e que 
 calcule e mostre a quantidade de pessoas com idade maior ou igual a 18 
 anos. Utilize arrow function. */
-const maioresIdade = () => {
+const maioresIdade = (idades) => {
     let quantidadeMaiores = 0;
 
-    for (let i = 0; i < 10; i++){
-    let idade = parseInt(prompt("Digite a idade da pessoa " + (i+1) + " de 10: "));
-
-        if (idade >= 18) {
+    for (let i = 0; i < idades.length; i++) {
+        if (idades[i] >= 18) {
             quantidadeMaiores++;
         }
     }
 
-    alert("Total de maiores de idade: " + quantidadeMaiores);    
     return quantidadeMaiores;
 };
-maioresIdade();
+
+let idades = [];
+
+for (let i = 0; i < 10; i++) {
+    idades.push(parseInt(prompt("Digite a idade da pessoa " + (i + 1) + ": ")));
+}
+
+alert("Total de maiores de idade: " + maioresIdade(idades));
