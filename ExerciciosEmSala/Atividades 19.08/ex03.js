@@ -1,0 +1,1 @@
+/*refaça o exercicio 1, agora use o map para fazer o triplo dos valores e em seguida use o próprio map para imprimir o novo vetor*/

@@ -1,0 +1,1 @@
+/*Converta a temperatura de celsius para Fahrenheit (f = c * 1,8 + 32) e imprima o novo vetor*/
